@@ -1,21 +1,21 @@
 <?php
 
-namespace Bx\Router\Otel\Event;
+namespace Bx\Otel\Event;
 
 class DefaultEventConfig extends BaseEventConfig
 {
     public function getModuleId(): string
     {
-        return 'bx.router.otel';
+        return 'bx.otel';
     }
 
     public function getNewSpanEventName(): string
     {
-        return 'bx.router.otel.new_span_event';
+        return 'bx.otel.new_span_event';
     }
 
     public function getNewSpanName(): string
     {
-        return 'bx.router.otel.new_span';
+        return 'bx.otel.new_span';
     }
 }

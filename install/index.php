@@ -4,8 +4,8 @@ IncludeModuleLangFile(__FILE__);
 
 use Bitrix\Main\EventManager;
 use Bitrix\Main\ModuleManager;
-use Bx\Router\Otel\BxOTelPageListener;
-use Bx\Router\Otel\Event\EventHandler;
+use Bx\Otel\BxOTelPageListener;
+use Bx\Otel\Event\EventHandler;
 
 
 class bx_otel extends CModule

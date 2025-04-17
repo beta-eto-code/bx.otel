@@ -11,7 +11,7 @@ if (!$USER->IsAdmin()) {
 use Bitrix\Main\Config\Option;
 use Bitrix\Main\Loader;
 use Bitrix\Main\Localization\Loc;
-use Bx\Router\Otel\ConfigList;
+use Bx\Otel\ConfigList;
 
 $mid = 'bx.router.otel';
 

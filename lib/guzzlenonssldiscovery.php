@@ -1,6 +1,6 @@
 <?php
 
-namespace Bx\Router\Otel;
+namespace Bx\Otel;
 
 use GuzzleHttp\Client;
 use OpenTelemetry\SDK\Common\Http\Psr\Client\Discovery\DiscoveryInterface;

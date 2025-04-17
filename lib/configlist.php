@@ -1,12 +1,12 @@
 <?php
 
-namespace Bx\Router\Otel;
+namespace Bx\Otel;
 
 use Bitrix\Main\Config\Option;
 
 class ConfigList
 {
-    const MODULE_NAME = 'bx.router.otel';
+    const MODULE_NAME = 'bx.otel';
     const USE_OTEL = 'USE_OTEL';
     const OTEL_URLS = 'OTEL_URLS';
     const OTEL_HOST = 'OTEL_HOST';

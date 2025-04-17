@@ -1,6 +1,6 @@
 <?php
 
-namespace Bx\Router\Otel;
+namespace Bx\Otel;
 
 use Bitrix\Main\Application;
 use Bitrix\Main\Config\Option;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Bx\Router\Otel;
+namespace Bx\Otel;
 
 use Bitrix\Main\Context;
 use Bitrix\Main\HttpRequest;

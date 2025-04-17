@@ -1,6 +1,6 @@
 <?php
 
-namespace Bx\Router\Otel\Event;
+namespace Bx\Otel\Event;
 
 use Bitrix\Main\Event;
 use Bitrix\Main\EventManager;
