@@ -64,7 +64,7 @@ class EventHandler
         $spanManager->createAndStartSpan($spanName, $attributes);
     }
 
-    private static function getSpanFromRequest(HttpRequest $request): ?OTelSpanManagerInterface
+    private static function getSpanFromRequest(ServerRequestInterface $request): ?OTelSpanManagerInterface
     {
         $spanManager = RequestHelper::getSpanManagerFromRequest($request);
         if ($spanManager instanceof OTelSpanManagerInterface) {
@@ -87,7 +87,7 @@ class EventHandler
 
         $bxRequest = Application::getInstance()->getContext()->getRequest();
         $psrRequest = new ServerRequest($bxRequest);
-        if (!static::isAllowRequest($bxRequest)) {
+        if (!static::isAllowRequest($psrRequest)) {
             return;
         }
 
@@ -96,14 +96,14 @@ class EventHandler
         EventHandler::init();
     }
 
-    private static function isAllowRequest(HttpRequest $request): bool
+    private static function isAllowRequest(ServerRequestInterface $request): bool
     {
         $urls = ConfigList::get(ConfigList::OTEL_URLS, []);
         if (empty($urls)) {
             return true;
         }
 
-        $path = $request->getServer()->getRequestUri();
+        $path = $request->getUri()->getPath();
         foreach ($urls as $url) {
             if ($url === $path || preg_match("/$url/", $path) === 1) {
                 return true;
