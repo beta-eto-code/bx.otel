@@ -47,7 +47,7 @@ class bx_otel extends CModule
             'OnPageStart',
             $this->MODULE_ID,
             EventHandler::class,
-            'onStart'
+            'onStart',
         );
     }
 
