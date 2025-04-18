@@ -5,7 +5,7 @@
 ```php
 
     
-    new \Bitrix\Main\Event('bx.router.otel', 'new_span', [
+    new \Bitrix\Main\Event('bx.otel', 'new_span', [
         $request,
         'IncludedSpanName',
         [
@@ -13,7 +13,7 @@
         ]
     ]);
     
-    new \Bitrix\Main\Event('bx.router.otel', 'new_span_event', [
+    new \Bitrix\Main\Event('bx.otel', 'new_span_event', [
         $request,
         'EventName',
         [
