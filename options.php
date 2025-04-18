@@ -13,7 +13,7 @@ use Bitrix\Main\Loader;
 use Bitrix\Main\Localization\Loc;
 use Bx\Otel\ConfigList;
 
-$mid = 'bx.router.otel';
+$mid = 'bx.otel';
 
 Loc::loadMessages(__FILE__);
 Loader::includeModule($mid);
