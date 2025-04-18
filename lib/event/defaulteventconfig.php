@@ -11,11 +11,11 @@ class DefaultEventConfig extends BaseEventConfig
 
     public function getNewSpanEventName(): string
     {
-        return 'bx.otel.new_span_event';
+        return 'new_span_event';
     }
 
     public function getNewSpanName(): string
     {
-        return 'bx.otel.new_span';
+        return 'new_span';
     }
 }

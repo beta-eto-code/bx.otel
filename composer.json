@@ -8,7 +8,8 @@
     }
   ],
   "require": {
-    "beta/otel.base": "^1.0"
+    "beta/otel.base": "^1.0",
+    "beta/bitrix-psr7" : "^1.0"
   },
   "autoload": {
     "classmap": ["lib/"]
