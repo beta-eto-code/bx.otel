@@ -83,7 +83,7 @@ if ($isSave && check_bitrix_sessid()) {
         } elseif ($isMultiple) {
             $value = json_encode($value);
         }
-        if (array_key_exists($name, $optionValidators) && is_callable($optionValidators[$name])) {
+        if (!empty($value) && array_key_exists($name, $optionValidators) && is_callable($optionValidators[$name])) {
             if (!$optionValidators[$name]($value)) {
                 $APPLICATION->ThrowException("Invalid value for option {$name}");
                 Option::set($mid, $name, "");
