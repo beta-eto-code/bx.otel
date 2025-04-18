@@ -4,10 +4,12 @@ namespace Bx\Otel\Event;
 
 use Bitrix\Main\Application;
 use Bitrix\Main\EventManager;
+use Bitrix\Main\HttpRequest;
+use Bitrix\Main\Request;
 use BitrixPSR7\ServerRequest;
-use Bx\Router\Otel\BxRequestHelper;
-use Bx\Router\Otel\ConfigList;
-use Bx\Router\Otel\OTelFactory;
+use Bx\Otel\BxRequestHelper;
+use Bx\Otel\ConfigList;
+use Bx\Otel\OTelFactory;
 use Exception;
 use Otel\Base\Interfaces\OTelSpanManagerInterface;
 use Otel\Base\Util\RequestHelper;
@@ -62,7 +64,7 @@ class EventHandler
         $spanManager->createAndStartSpan($spanName, $attributes);
     }
 
-    private static function getSpanFromRequest(ServerRequestInterface $request): ?OTelSpanManagerInterface
+    private static function getSpanFromRequest(HttpRequest $request): ?OTelSpanManagerInterface
     {
         $spanManager = RequestHelper::getSpanManagerFromRequest($request);
         if ($spanManager instanceof OTelSpanManagerInterface) {
@@ -85,7 +87,7 @@ class EventHandler
 
         $bxRequest = Application::getInstance()->getContext()->getRequest();
         $psrRequest = new ServerRequest($bxRequest);
-        if (!static::isAllowRequest($psrRequest)) {
+        if (!static::isAllowRequest($bxRequest)) {
             return;
         }
 
@@ -94,14 +96,14 @@ class EventHandler
         EventHandler::init();
     }
 
-    private static function isAllowRequest(ServerRequestInterface $request): bool
+    private static function isAllowRequest(HttpRequest $request): bool
     {
         $urls = ConfigList::get(ConfigList::OTEL_URLS, []);
         if (empty($urls)) {
             return true;
         }
 
-        $path = $request->getUri()->getPath();
+        $path = $request->getServer()->getRequestUri();
         foreach ($urls as $url) {
             if ($url === $path || preg_match("/$url/", $path) === 1) {
                 return true;
