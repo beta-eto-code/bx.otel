@@ -4,10 +4,12 @@ namespace Bx\Otel\Event;
 
 use Bitrix\Main\Application;
 use Bitrix\Main\EventManager;
+use Bitrix\Main\HttpRequest;
+use Bitrix\Main\Request;
 use BitrixPSR7\ServerRequest;
-use Bx\Router\Otel\BxRequestHelper;
-use Bx\Router\Otel\ConfigList;
-use Bx\Router\Otel\OTelFactory;
+use Bx\Otel\BxRequestHelper;
+use Bx\Otel\ConfigList;
+use Bx\Otel\OTelFactory;
 use Exception;
 use Otel\Base\Interfaces\OTelSpanManagerInterface;
 use Otel\Base\Util\RequestHelper;
