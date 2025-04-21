@@ -17,8 +17,8 @@
   },
   "repositories": [
     {
-      "url": "https://github.com/beta-eto-code/otel.base",
-      "type": "git"
+      "url": "git@github.com:beta-eto-code/otel.base.git",
+      "type": "vcs"
     }
   ],
   "config": {
