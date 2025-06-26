@@ -86,6 +86,10 @@ class EventHandler
         }
 
         $bxRequest = Application::getInstance()->getContext()->getRequest();
+        if (empty($bxRequest->getServer()->get('HTTP_HOST'))) {
+            return;
+        }
+
         $psrRequest = new ServerRequest($bxRequest);
         if (!static::isAllowRequest($psrRequest)) {
             return;

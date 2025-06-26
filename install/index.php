@@ -19,8 +19,8 @@ class bx_otel extends CModule
 
     public function __construct()
     {
-        $this->MODULE_VERSION = "1.0.0";
-        $this->MODULE_VERSION_DATE = "2025-03-25 00:00:00";
+        $this->MODULE_VERSION = "1.1.2";
+        $this->MODULE_VERSION_DATE = "2025-06-24";
         $this->MODULE_NAME = "BxOtel";
         $this->MODULE_DESCRIPTION = "Bitrix модуль для сбора метрик на событиях OnPageStart";
     }
